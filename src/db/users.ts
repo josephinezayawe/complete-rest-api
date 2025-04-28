@@ -23,7 +23,7 @@ export const getUserByEmail = (email: string) => userModel.findOne({ email });
 export const getUserBySessionToken = (sessionToken: string) =>
   userModel.findOne({ "authentication.sessionToken": sessionToken });
 
-export const getUserId = (id: string) => userModel.findById(id);
+export const getUserById = (id: string) => userModel.findById(id);
 
 // Use lowercase `string` for keys in Record types
 export const createUser = (values: Record<string, any>) =>

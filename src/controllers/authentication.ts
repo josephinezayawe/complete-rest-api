@@ -41,11 +41,8 @@ export const logIn = async (req: express.Request, res: express.Response) => {
     await user.save();
 
     res.cookie("yozefu-auth", user.authentication.sessionToken, {
-      httpOnly: true, // 🔥 Important: protect cookie from client-side JS
-      domain: "localhost", // for development; change it for production
+      domain: "localhost",
       path: "/",
-      secure: false, // Set to true if you're using HTTPS
-      sameSite: "lax", // Good basic CSRF protection
     });
 
     return res.status(200).json({ message: "Login successful", user });
